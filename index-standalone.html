@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wiener Wonderland | Exclusive One-Dog Daycare in Lake Claire</title>
+<meta name="description" content="Wiener Wonderland is Lake Claire's exclusive one-dog-at-a-time daycare for dachshunds. Calm, unhurried, one-on-one care in a quiet home setting.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Mulish:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F4F1EA;
+  --bg-alt:#ECE7DB;
+  --surface:#FFFFFF;
+  --surface-warm:#FBF9F3;
+  --ink:#2E2E2C;
+  --ink-soft:#6C685F;
+  --sage:#6E7F6E;
+  --sage-dark:#54634F;
+  --sage-light:#8A9B87;
+  --gold:#C9A24C;
+  --line:rgba(46,46,44,0.10);
+  --radius:18px;
+  --radius-lg:26px;
+  --shadow-sm:0 2px 10px rgba(46,46,44,0.05);
+  --shadow:0 18px 44px rgba(46,46,44,0.10);
+  --maxw:1160px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;scroll-padding-top:90px;}
+body{
+  font-family:'Mulish',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+h1,h2{font-family:'Cormorant Garamond','Georgia',serif;font-weight:600;color:var(--ink);line-height:1.08;letter-spacing:-0.005em;}
+h3{font-family:'Mulish',sans-serif;font-weight:700;color:var(--ink);letter-spacing:.01em;}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
+.narrow{max-width:780px;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+ul{list-style:none;}
+/* Dachshund silhouette shapes have no fill of their own — follow currentColor.
+   The two-tone #dox-logo keeps its explicit fills, so this won't affect it. */
+.logo-mark,.feature-mark,.hero-deco,.cta-deco,.avatar svg{fill:currentColor;}
+
+/* Eyebrow + heads */
+.eyebrow{
+  display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--sage-dark);margin-bottom:18px;
+}
+.eyebrow.center{display:block;text-align:center;}
+.section-head{margin-bottom:60px;}
+.lead{font-size:1.18rem;color:var(--ink-soft);margin-bottom:36px;max-width:48ch;line-height:1.6;}
+
+/* Header */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(244,241,234,0.78);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s var(--ease), box-shadow .3s var(--ease), background .3s var(--ease);
+}
+.site-header.scrolled{border-bottom-color:var(--line);box-shadow:var(--shadow-sm);background:rgba(244,241,234,0.92);}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;}
+.logo{display:flex;align-items:center;gap:11px;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.5rem;color:var(--ink);letter-spacing:-0.01em;}
+.logo-mark{width:44px;height:26px;flex:none;}
+.main-nav{display:flex;gap:4px;align-items:center;}
+.main-nav a{font-weight:600;font-size:.95rem;color:var(--ink-soft);padding:9px 15px;border-radius:999px;transition:color .2s,background .2s;}
+.main-nav a:hover{color:var(--sage-dark);background:rgba(110,127,110,0.10);}
+.nav-cta{background:var(--sage);color:#fff !important;padding:10px 22px !important;box-shadow:0 6px 16px rgba(84,99,79,0.28);}
+.nav-cta:hover{background:var(--sage-dark) !important;transform:translateY(-1px);}
+.nav-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px;}
+.nav-toggle span{width:24px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s var(--ease),opacity .3s var(--ease);}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+/* Hero (light, editorial) */
+.hero{position:relative;padding:96px 0 108px;overflow:hidden;}
+.hero-deco{position:absolute;right:-40px;bottom:-30px;width:340px;height:auto;color:rgba(110,127,110,0.10);pointer-events:none;}
+.hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;position:relative;}
+.hero-copy .eyebrow{color:var(--sage-dark);}
+.hero h1{font-size:clamp(2.7rem,5vw,4.2rem);margin-bottom:24px;font-weight:600;}
+.hero-text{font-size:1.2rem;color:var(--ink-soft);margin-bottom:34px;max-width:46ch;line-height:1.6;}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+.hero-stats{display:flex;align-items:center;gap:26px;}
+.hero-stats strong{display:block;font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--sage-dark);line-height:1;}
+.hero-stats span{font-size:.9rem;color:var(--ink-soft);}
+.hero-stats .divider{width:1px;height:38px;background:var(--line);}
+
+/* Hero image — clean rounded rectangle */
+.arch-frame{
+  border-radius:var(--radius-lg);
+  overflow:hidden;box-shadow:var(--shadow);
+  aspect-ratio:4/5;background:var(--bg-alt);
+}
+.arch-frame img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.arch-frame:hover img{transform:scale(1.03);}
+
+/* Buttons */
+.btn{display:inline-block;padding:15px 34px;border-radius:999px;font-weight:700;font-size:.98rem;transition:transform .2s var(--ease), background .2s, box-shadow .2s, border-color .2s;cursor:pointer;}
+.btn-primary{background:var(--sage);color:#fff;box-shadow:0 10px 24px rgba(84,99,79,0.28);}
+.btn-primary:hover{background:var(--sage-dark);transform:translateY(-2px);box-shadow:0 14px 30px rgba(84,99,79,0.34);}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+.btn-ghost:hover{border-color:var(--sage);color:var(--sage-dark);transform:translateY(-2px);}
+.btn-block{display:block;text-align:center;width:100%;margin-top:26px;}
+
+/* Announcement */
+.announcement{background:var(--sage-dark);color:#f3f1e9;text-align:center;padding:15px 28px;font-size:.95rem;letter-spacing:.01em;}
+.announcement strong{color:var(--gold);font-weight:700;}
+
+/* Sections */
+.section{padding:118px 0;}
+.section.alt{background:var(--bg-alt);}
+h2{font-size:clamp(2.1rem,4vw,3rem);margin-bottom:22px;}
+h2.center{text-align:center;margin-bottom:0;}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.image-frame{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);}
+.image-frame img{transition:transform .6s var(--ease);width:100%;}
+.image-frame:hover img{transform:scale(1.03);}
+
+.feature-list{display:flex;flex-direction:column;gap:28px;}
+.feature{display:flex;gap:20px;align-items:center;}
+.feature-mark{flex:none;width:56px;height:34px;color:var(--sage);}
+.feature h3{font-size:1.16rem;margin-bottom:4px;}
+.feature p{color:var(--ink-soft);}
+
+/* Cards */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;}
+.card{
+  position:relative;background:var(--surface);padding:40px 34px;border-radius:var(--radius);
+  box-shadow:var(--shadow-sm);border:1px solid var(--line);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.card-index{display:block;font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:var(--gold);font-weight:600;margin-bottom:14px;letter-spacing:.04em;}
+.card h3{margin-bottom:10px;font-size:1.2rem;}
+.card p{color:var(--ink-soft);}
+.group-head{margin:80px 0 40px;text-align:center;}
+.group-head .eyebrow{margin-bottom:0;}
+.card.numbered{padding-top:48px;}
+.num{
+  position:absolute;top:-18px;left:34px;background:var(--sage);color:#fff;
+  width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.15rem;box-shadow:0 8px 18px rgba(84,99,79,0.32);
+}
+
+/* Pricing */
+.pricing-grid{margin-bottom:24px;align-items:stretch;max-width:920px;margin-left:auto;margin-right:auto;}
+.price-card{position:relative;background:var(--surface);border-radius:var(--radius-lg);padding:46px 40px;box-shadow:var(--shadow-sm);border:1px solid var(--line);}
+.price-card.featured{border:1px solid var(--sage);box-shadow:var(--shadow);}
+.price-tag{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--sage-dark);margin-bottom:14px;}
+.price-tag.muted{color:var(--ink-soft);}
+.price{font-size:3.4rem;font-family:'Cormorant Garamond',serif;color:var(--ink);margin:2px 0 6px;font-weight:600;line-height:1;}
+.price span{font-size:1.05rem;font-weight:400;color:var(--ink-soft);font-family:'Mulish',sans-serif;}
+.price-sub{font-weight:500;margin-bottom:24px;color:var(--ink-soft);font-size:.95rem;}
+.price-list{display:flex;flex-direction:column;gap:13px;}
+.price-list li{position:relative;padding-left:28px;color:var(--ink-soft);}
+.price-list li::before{content:"";position:absolute;left:2px;top:9px;width:10px;height:10px;border-radius:50%;background:var(--sage-light);}
+.notice-card{background:var(--surface-warm);border:1px dashed rgba(108,104,95,0.35);}
+.discontinued{display:inline-block;background:var(--ink-soft);color:#fff;padding:6px 16px;border-radius:999px;font-size:.85rem;font-weight:600;margin:6px 0 14px;}
+.notice-card p:last-child{color:var(--ink-soft);}
+.fine-print{text-align:center;color:var(--ink-soft);font-size:.9rem;}
+
+/* Staff */
+.staff-grid{max-width:760px;margin:0 auto;}
+.staff-card{background:var(--surface);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid var(--line);padding:42px 36px;text-align:center;transition:transform .3s var(--ease), box-shadow .3s var(--ease);}
+.staff-card:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+.avatar{width:104px;height:104px;border-radius:50%;background:linear-gradient(150deg,var(--bg-alt),#e2dccd);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:inset 0 2px 8px rgba(46,46,44,0.06);}
+.avatar svg{width:66px;height:auto;color:var(--sage);}
+.staff-card h3{font-size:1.24rem;margin-bottom:3px;}
+.staff-card p{color:var(--ink-soft);}
+
+/* FAQ */
+.faq-item{background:var(--surface);border-radius:var(--radius);padding:4px 28px;margin-bottom:14px;box-shadow:var(--shadow-sm);border:1px solid var(--line);transition:box-shadow .3s var(--ease);}
+.faq-item[open]{box-shadow:var(--shadow);}
+.faq-item summary{font-weight:700;cursor:pointer;list-style:none;padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:1.05rem;}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:"+";font-size:1.5rem;color:var(--sage);transition:transform .3s var(--ease);line-height:1;font-weight:400;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item p{padding:0 0 22px;color:var(--ink-soft);}
+
+/* CTA */
+.cta-section{position:relative;background:radial-gradient(130% 150% at 15% 10%, #5d6d57 0%, var(--sage-dark) 55%, #3f4a3b 100%);color:#fff;padding:118px 0;text-align:center;overflow:hidden;}
+.cta-deco{position:absolute;left:-30px;bottom:-24px;width:300px;height:auto;color:rgba(255,255,255,0.07);pointer-events:none;}
+.cta-section h2{color:#fff;max-width:20ch;margin:0 auto 18px;}
+.cta-section > .container > p{color:#e6e8df;margin-bottom:42px;max-width:52ch;margin-left:auto;margin-right:auto;position:relative;}
+.contact-grid{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;position:relative;}
+.contact-item{background:rgba(255,255,255,0.09);padding:26px 42px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.14);transition:background .2s,transform .2s;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:230px;}
+.contact-item:hover{background:rgba(255,255,255,0.17);transform:translateY(-3px);}
+.contact-label{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);}
+.contact-value{font-size:1.2rem;font-weight:700;}
+
+/* Footer */
+.site-footer{padding:44px 0;background:var(--ink);color:#b7b3a8;}
+.footer-inner{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;}
+.footer-logo{color:#fff;font-size:1.3rem;gap:11px;}
+.footer-logo .logo-mark{width:42px;height:26px;color:var(--sage-light);}
+.site-footer p{font-size:.9rem;}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none;}
+  html{scroll-behavior:auto;}
+}
+
+/* Responsive */
+@media (max-width:880px){
+  .section{padding:78px 0;}
+  .hero{padding:60px 0 72px;}
+  .two-col,.hero-grid{grid-template-columns:1fr;gap:44px;}
+  .hero-media{order:-1;max-width:440px;margin:0 auto;}
+  .arch-frame{aspect-ratio:5/4;}
+  .hero h1 br{display:none;}
+  .grid-3,.grid-2{grid-template-columns:1fr;}
+  .main-nav{position:absolute;top:100%;left:0;right:0;background:var(--bg);flex-direction:column;padding:16px;display:none;gap:6px;border-bottom:1px solid var(--line);box-shadow:var(--shadow);}
+  .main-nav.open{display:flex;}
+  .main-nav a{width:100%;padding:12px 16px;}
+  .nav-cta{text-align:center;}
+  .nav-toggle{display:flex;}
+  .hero-deco{width:220px;opacity:.7;}
+  .contact-item{min-width:0;width:100%;max-width:340px;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ===== Reusable dachshund illustrations ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <!-- Single-colour silhouette (inherits currentColor) -->
+  <symbol id="dox" viewBox="0 0 260 150">
+    <path d="M40 66 C22 58 20 40 34 30" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+    <rect x="52" y="92" width="14" height="42" rx="7"/>
+    <rect x="80" y="92" width="14" height="42" rx="7"/>
+    <rect x="150" y="92" width="14" height="42" rx="7"/>
+    <rect x="178" y="92" width="14" height="42" rx="7"/>
+    <rect x="40" y="60" width="170" height="44" rx="22"/>
+    <circle cx="210" cy="58" r="30"/>
+    <rect x="226" y="50" width="34" height="22" rx="11"/>
+    <path d="M198 34 C226 24 238 44 224 66 C210 60 198 50 198 34 Z"/>
+  </symbol>
+  <!-- Two-tone logo mark with a little gold collar -->
+  <symbol id="dox-logo" viewBox="0 0 260 150">
+    <g fill="#6E7F6E">
+      <path d="M40 66 C22 58 20 40 34 30" fill="none" stroke="#6E7F6E" stroke-width="9" stroke-linecap="round"/>
+      <rect x="52" y="92" width="14" height="42" rx="7"/>
+      <rect x="80" y="92" width="14" height="42" rx="7"/>
+      <rect x="150" y="92" width="14" height="42" rx="7"/>
+      <rect x="178" y="92" width="14" height="42" rx="7"/>
+      <rect x="40" y="60" width="170" height="44" rx="22"/>
+      <circle cx="210" cy="58" r="30"/>
+      <rect x="226" y="50" width="34" height="22" rx="11"/>
+    </g>
+    <path d="M198 34 C226 24 238 44 224 66 C210 60 198 50 198 34 Z" fill="#54634F"/>
+    <circle cx="215" cy="53" r="3.4" fill="#F4F1EA"/>
+    <circle cx="258" cy="58" r="5.5" fill="#2E2E2C"/>
+    <rect x="185" y="50" width="9" height="40" rx="3" fill="#C9A24C"/>
+    <circle cx="189.5" cy="92" r="4.5" fill="#C9A24C"/>
+  </symbol>
+</svg>
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <a href="#home" class="logo">
+      <svg class="logo-mark" viewBox="0 0 260 150" aria-hidden="true"><use href="#dox-logo"/></svg>
+      <span>Wiener Wonderland</span>
+    </a>
+    <nav class="main-nav" id="main-nav">
+      <a href="#approach">Approach</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#services">Services</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="nav-cta">Reserve a Spot</a>
+    </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <svg class="hero-deco" viewBox="0 0 260 150" aria-hidden="true"><use href="#dox"/></svg>
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow reveal">One dog at a time · Lake Claire, Atlanta</span>
+      <h1 class="reveal">A quiet little wonderland,<br>just for your dachshund.</h1>
+      <p class="hero-text reveal">A boutique daycare that welcomes only one dog at a time — so every walk, every nap, and every belly rub belongs entirely to your pup.</p>
+      <div class="hero-actions reveal">
+        <a href="#contact" class="btn btn-primary">Reserve a Spot</a>
+        <a href="#approach" class="btn btn-ghost">How it works</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div><strong>1</strong><span>dog at a time</span></div>
+        <div class="divider"></div>
+        <div><strong>12 hrs</strong><span>of playtime</span></div>
+        <div class="divider"></div>
+        <div><strong>$25+</strong><span>per day</span></div>
+      </div>
+    </div>
+    <div class="hero-media reveal">
+      <div class="arch-frame">
+        <img src="https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/width:2000/https://cdn.gamma.app/pb8fp5dwvvcwzei/92fc5eb181434110b7dce08b1baf7532/original/puppy2.jpeg" alt="A relaxed dachshund resting comfortably">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="announcement">
+  <div class="container">
+    <p><strong>Service update</strong> — We've retired overnight boarding to become a daycare-only service, so every dachshund has our full attention during the day.</p>
+  </div>
+</section>
+
+<section class="section" id="approach">
+  <div class="container two-col">
+    <div class="reveal">
+      <span class="eyebrow">Our approach</span>
+      <h2>Undivided attention, by design.</h2>
+      <p class="lead">Most daycares run a pack. We host a party of one. That single decision shapes everything about your dachshund's day.</p>
+      <div class="feature-list">
+        <div class="feature">
+          <svg class="feature-mark" viewBox="0 0 260 150" aria-hidden="true"><use href="#dox"/></svg>
+          <div>
+            <h3>Exclusive attention</h3>
+            <p>No competing for affection — your dachshund is our only guest, with all our care and focus for the whole visit.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <svg class="feature-mark" viewBox="0 0 260 150" aria-hidden="true"><use href="#dox"/></svg>
+          <div>
+            <h3>A calm, homelike setting</h3>
+            <p>No pack dynamics, no territorial disputes, no overwhelm — just a peaceful home where your wiener dog can truly unwind.</p>
+          </div>
+        </div>
+        <div class="feature">
+          <svg class="feature-mark" viewBox="0 0 260 150" aria-hidden="true"><use href="#dox"/></svg>
+          <div>
+            <h3>Tailored to your dog</h3>
+            <p>Every activity adapts to your dachshund's personality, energy level, and preferences for a genuinely customized day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="image-frame reveal">
+      <img src="https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/width:2000/https://cdn.gamma.app/pb8fp5dwvvcwzei/57030b2779ab43cd883b38d4965fc12b/original/IMG_0153.jpeg" alt="A dachshund enjoying the outdoors on a sunny rock">
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Why it works &amp; what's included</span>
+      <h2 class="center">The quiet benefits of one-on-one care</h2>
+    </div>
+    <div class="grid-3">
+      <div class="card reveal">
+        <span class="card-index">01</span>
+        <h3>Reduced anxiety</h3>
+        <p>No overwhelming pack dynamics or noisy environments that can stress dachshunds, who often prefer quieter settings.</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-index">02</span>
+        <h3>Personalized play</h3>
+        <p>Activities matched to your dog's energy level and preferences — never a one-size-fits-all approach.</p>
+      </div>
+      <div class="card reveal">
+        <span class="card-index">03</span>
+        <h3>Safety first</h3>
+        <p>No risk of conflicts with other dogs — especially important for dachshunds, given their unique body structure.</p>
+      </div>
+    </div>
+
+    <div class="group-head reveal"><span class="eyebrow center">What's included in every stay</span></div>
+    <div class="grid-3">
+      <div class="card numbered reveal">
+        <span class="num">1</span>
+        <h3>Personalized activities</h3>
+        <p>Private daily walks tailored to their pace and stamina, interactive playtime, and quiet naps built around your dachshund's routine.</p>
+      </div>
+      <div class="card numbered reveal">
+        <span class="num">2</span>
+        <h3>Regular updates</h3>
+        <p>Photo and text updates throughout the day, so you can see exactly how your dachshund is enjoying their exclusive stay.</p>
+      </div>
+      <div class="card numbered reveal">
+        <span class="num">3</span>
+        <h3>Flexible scheduling</h3>
+        <p>Drop-off and pick-up times that work with your schedule — because we only ever focus on one dog at a time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Honest pricing</span>
+      <h2 class="center">Simple, transparent rates</h2>
+    </div>
+    <div class="grid-2 pricing-grid">
+      <div class="price-card featured reveal">
+        <span class="price-tag">Daycare</span>
+        <p class="price">$30<span>/ day</span></p>
+        <p class="price-sub">$25/day with a 5-day discount · $5/hr beyond a 9-hour day</p>
+        <ul class="price-list">
+          <li>Up to 12 hours of supervised play</li>
+          <li>Private daily walks &amp; restful downtime</li>
+          <li>Photo &amp; text updates throughout the day</li>
+          <li>One dog at a time — always</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary btn-block">Reserve a Spot</a>
+      </div>
+      <div class="price-card notice-card reveal">
+        <span class="price-tag muted">Overnight boarding</span>
+        <p class="discontinued">No longer offered</p>
+        <p>We've paused overnight boarding to focus fully on our daytime one-on-one care. Thank you for understanding.</p>
+      </div>
+    </div>
+    <p class="fine-print">A 72-hour cancellation notice is required to avoid being charged for your dachshund's reserved daycare time.</p>
+  </div>
+</section>
+
+<section class="section alt" id="faq">
+  <div class="container narrow">
+    <div class="section-head reveal">
+      <span class="eyebrow center">Good to know</span>
+      <h2 class="center">Frequently asked questions</h2>
+    </div>
+    <details class="faq-item reveal" open>
+      <summary>How do I book a stay for my dachshund?</summary>
+      <p>Call us at (404) 647-4904, or email apavluck@gmail.com. We'll get back to you within 24 hours to discuss your dachshund's specific needs and find the perfect spot in our schedule.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>What should I bring for my dachshund's stay?</summary>
+      <p>Just their regular food, any necessary medications, a beloved toy or blanket, and any special instructions for their routine. If they're a swimmer, we even have a pool.</p>
+    </details>
+    <details class="faq-item reveal">
+      <summary>Do you really only take one dog at a time?</summary>
+      <p>Always. It's the heart of what we do. Your dachshund will never share their day with another dog, which keeps things calm, safe, and completely focused on them.</p>
+    </details>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <svg class="cta-deco" viewBox="0 0 260 150" aria-hidden="true"><use href="#dox"/></svg>
+  <div class="container">
+    <h2>Give your dachshund the VIP treatment they deserve.</h2>
+    <p>Spaces are limited due to our one-dog-at-a-time policy, so reach out today to reserve your spot.</p>
+    <div class="contact-grid">
+      <a class="contact-item" href="tel:14046474904">
+        <span class="contact-label">Call us</span>
+        <span class="contact-value">(404) 647-4904</span>
+      </a>
+      <a class="contact-item" href="mailto:apavluck@gmail.com">
+        <span class="contact-label">Email</span>
+        <span class="contact-value">apavluck@gmail.com</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span class="logo footer-logo">
+      <svg class="logo-mark" viewBox="0 0 260 150" aria-hidden="true"><use href="#dox"/></svg>
+      Wiener Wonderland
+    </span>
+    <p>&copy; <span id="year"></span> Wiener Wonderland LLC · Lake Claire, Atlanta · wienerwonderland.com</p>
+  </div>
+</footer>
+
+<script>
+// Current year in footer
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Mobile nav toggle
+const navToggle = document.getElementById('nav-toggle');
+const mainNav = document.getElementById('main-nav');
+navToggle.addEventListener('click', () => {
+  const open = mainNav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+mainNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Header shadow on scroll
+const header = document.getElementById('site-header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 8);
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
+
+// Scroll-reveal animations
+const reveals = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        // slight stagger for grouped items
+        entry.target.style.transitionDelay = `${Math.min(i * 60, 240)}ms`;
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => io.observe(el));
+} else {
+  reveals.forEach(el => el.classList.add('in'));
+}
+
+</script>
+</body>
+</html>
