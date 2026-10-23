@@ -36,7 +36,6 @@
   --sans:'Outfit','DejaVu Sans',system-ui,-apple-system,sans-serif;
   --display:'Fraunces',Georgia,'Times New Roman',serif;
   --paw:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='black' transform='rotate(-14 20 20)'><ellipse cx='20' cy='26.5' rx='8' ry='6.5'/><circle cx='10.5' cy='17' r='3.4'/><circle cx='17' cy='10.5' r='3.6'/><circle cx='25' cy='10.5' r='3.6'/><circle cx='31.5' cy='17' r='3.4'/></g></svg>");
-  --paw-cream:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><g fill='%23F6E7CE' transform='rotate(-14 20 20)'><ellipse cx='20' cy='26.5' rx='8' ry='6.5'/><circle cx='10.5' cy='17' r='3.4'/><circle cx='17' cy='10.5' r='3.6'/><circle cx='25' cy='10.5' r='3.6'/><circle cx='31.5' cy='17' r='3.4'/></g></svg>");
   --squig-line:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='6' viewBox='0 0 24 6'><path d='M1 4 Q4 1.5 7 4 T13 4 T19 4' fill='none' stroke='%23C9853F' stroke-width='2' stroke-linecap='round'/></svg>");
 }
 
@@ -61,7 +60,7 @@ a{text-decoration:none;color:inherit;}
 img{max-width:100%;display:block;}
 ul{list-style:none;}
 /* Dachshund silhouette shapes have no fill of their own — follow currentColor. */
-.logo-mark,.feature-mark,.hero-deco,.cta-deco{fill:currentColor;}
+.logo-mark,.feature-mark{fill:currentColor;}
 
 /* Eyebrow + heads */
 .eyebrow{
@@ -112,12 +111,7 @@ ul{list-style:none;}
 .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 /* Hero */
-.hero{position:relative;padding:104px 0 92px;overflow:hidden;
-  background:radial-gradient(640px 320px at 88% -6%, rgba(201,133,63,0.16), transparent 65%),
-             radial-gradient(420px 260px at -8% 88%, rgba(180,87,46,0.06), transparent 60%),
-             var(--cream);
-}
-.hero-deco{position:absolute;right:-24px;bottom:18px;width:240px;height:auto;color:var(--caramel-soft);pointer-events:none;}
+.hero{position:relative;padding:104px 0 92px;overflow:hidden;}
 
 /* Decorative dog/paw accents placed in empty space */
 .deco{position:absolute;pointer-events:none;color:var(--caramel-soft);z-index:0;opacity:.35;}
@@ -142,12 +136,12 @@ ul{list-style:none;}
 .hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:46px;}
 .hero-stats{display:flex;align-items:center;gap:28px;}
 .hero-stats strong{display:block;font-family:var(--display);font-weight:800;font-size:1.9rem;color:var(--choco);line-height:1;letter-spacing:-0.01em;}
-.hero-stats span{font-size:.88rem;color:var(--ink-soft);}
+.hero-stats div > span{font-size:.88rem;color:var(--ink-soft);}
 .hero-stats .divider{width:1px;height:38px;background:var(--line-strong);}
 
-/* Hero media — clean rounded image */
+/* Hero media — clean rounded frame */
 .hero-media{position:relative;}
-.arch-frame{
+.hero-frame{
   position:relative;
   border-radius:var(--radius-lg);
   overflow:hidden;
@@ -156,15 +150,11 @@ ul{list-style:none;}
   aspect-ratio:4/5;
   background:var(--sand);
 }
-.arch-frame img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
-.arch-frame:hover img{transform:scale(1.03);}
-/* Hero video background */
+.hero-frame img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.hero-frame:hover img{transform:scale(1.03);}
+/* Hero video */
 .hero-video{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
 .hero-media:hover .hero-video{transform:scale(1.03);}
-
-/* Waggable dachshund silhouette */
-.wag .tail{transform-box:fill-box;transform-origin:96% 92%;animation:wag 1.5s ease-in-out infinite;}
-@keyframes wag{0%,100%{transform:rotate(0deg);}50%{transform:rotate(-16deg);}}
 
 /* Buttons */
 .btn{
@@ -177,7 +167,7 @@ ul{list-style:none;}
 .btn-primary::after{content:"→";font-weight:800;transition:transform .25s var(--ease);}
 .btn-primary:hover{background:var(--caramel-deep);transform:translateY(-2px);box-shadow:0 16px 28px -12px rgba(59,36,22,0.6);}
 .btn-primary:hover::after{transform:translateX(4px);}
-.btn-ghost{background:var(--paper);color:var(--choco);border:1.5px solid var(--line-strong);}
+.btn-ghost{background:var(--paper);color:var(--choco);border:1.5px solid var(--choco);}
 .btn-ghost:hover{border-color:var(--choco);background:#fff;transform:translateY(-2px);}
 .btn-block{display:flex;width:100%;margin-top:28px;}
 
@@ -190,7 +180,10 @@ ul{list-style:none;}
 .announcement strong{color:var(--caramel-deep);font-weight:700;}
 
 /* Marquee ticker */
-.marquee{background:var(--choco);color:var(--cream);padding:17px 0;overflow:hidden;}
+.marquee{background:var(--choco);color:var(--cream);padding:17px 0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+}
 .marquee-track{display:flex;width:max-content;animation:scroll-x 30s linear infinite;}
 .marquee:hover .marquee-track{animation-play-state:paused;}
 .marquee-row{display:flex;align-items:center;gap:38px;padding-right:38px;}
@@ -200,11 +193,7 @@ ul{list-style:none;}
 
 /* Sections */
 .section{padding:120px 0;}
-.section.alt{
-  background:var(--sand);
-  background-image:radial-gradient(rgba(59,36,22,0.055) 1.2px, transparent 1.7px);
-  background-size:26px 26px;
-}
+.section.alt{background:var(--sand);}
 h2{font-size:clamp(2.1rem,3.8vw,3.1rem);margin-bottom:22px;}
 h2.center{text-align:center;margin-bottom:0;}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:76px;align-items:center;}
@@ -241,15 +230,8 @@ h2.center{text-align:center;margin-bottom:0;}
 .card-index{display:block;font-family:var(--display);font-style:italic;font-weight:700;font-size:1.6rem;color:var(--caramel);margin-bottom:14px;line-height:1;}
 .card h3{margin-bottom:10px;font-size:1.3rem;}
 .card p{color:var(--ink-soft);}
-.card.numbered{padding-top:50px;}
 .group-head{margin:84px 0 44px;text-align:center;}
 .group-head .eyebrow{margin-bottom:0;}
-.num{
-  position:absolute;top:-20px;left:30px;background:var(--caramel);color:var(--paper);
-  width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  border:3px solid var(--sand);
-  font-family:var(--display);font-style:italic;font-weight:800;font-size:1.2rem;
-}
 
 /* Pricing */
 .pricing-grid{margin-bottom:30px;align-items:stretch;max-width:940px;margin-left:auto;margin-right:auto;}
@@ -265,7 +247,7 @@ h2.center{text-align:center;margin-bottom:0;}
 }
 .price-card.featured:hover{transform:translateY(-4px);}
 .badge{
-  position:absolute;top:-16px;right:32px;background:var(--rust);color:var(--paper);
+  position:absolute;top:40px;right:26px;background:var(--rust);color:var(--paper);
   padding:9px 20px;border-radius:999px;
   font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
   box-shadow:0 10px 20px -8px rgba(59,36,22,0.45);
@@ -290,7 +272,7 @@ h2.center{text-align:center;margin-bottom:0;}
 .featured .price-list li{color:var(--sand);}
 .featured .btn-primary{background:var(--caramel);color:var(--choco-deep);box-shadow:0 12px 24px -10px rgba(0,0,0,0.45);}
 .featured .btn-primary:hover{background:var(--paper);color:var(--choco);}
-.notice-card{background:var(--sand);border:1.5px dashed var(--line-strong);}
+.notice-card{background:var(--sand);border:1px solid var(--line-strong);}
 .discontinued{display:inline-block;background:var(--sand-deep);color:var(--ink);padding:7px 18px;border-radius:999px;font-size:.85rem;font-weight:600;margin:6px 0 16px;}
 .notice-card p:last-child{color:var(--ink-soft);}
 .fine-print{text-align:center;color:var(--ink-soft);font-size:.9rem;}
@@ -308,12 +290,6 @@ h2.center{text-align:center;margin-bottom:0;}
 
 /* CTA */
 .cta-section{position:relative;background:var(--choco);color:var(--cream);padding:120px 0;text-align:center;overflow:hidden;border-radius:48px 48px 0 0;}
-.cta-section::before{
-  content:"";position:absolute;inset:0;pointer-events:none;opacity:0.06;
-  background-image:var(--paw-cream);
-  background-size:96px 96px;
-}
-.cta-deco{position:absolute;left:-28px;bottom:-22px;width:300px;height:auto;color:rgba(246,231,206,0.10);pointer-events:none;}
 .cta-section h2{color:var(--cream);max-width:20ch;margin:0 auto 18px;}
 .cta-section > .container > p{color:var(--caramel-soft);margin-bottom:44px;max-width:52ch;margin-left:auto;margin-right:auto;position:relative;}
 .contact-grid{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;position:relative;}
@@ -342,10 +318,10 @@ h2.center{text-align:center;margin-bottom:0;}
 /* Responsive */
 @media (max-width:880px){
   .section{padding:80px 0;}
-  .hero{padding:64px 0 76px;}
-  .two-col,.hero-grid{grid-template-columns:1fr;gap:60px;}
-  .hero-media{order:-1;max-width:420px;margin:26px auto 0;}
-  .arch-frame{aspect-ratio:4/5;}
+  .hero{padding:32px 0 68px;}
+  .two-col,.hero-grid{grid-template-columns:1fr;gap:44px;}
+  .hero-media{order:-1;max-width:420px;margin:8px auto 0;}
+  .hero-frame{aspect-ratio:4/5;}
   .hero h1 br{display:none;}
   .grid-3,.grid-2{grid-template-columns:1fr;}
   .price-card.featured{transform:none;}
@@ -357,7 +333,6 @@ h2.center{text-align:center;margin-bottom:0;}
   .main-nav a::after{display:none;}
   .nav-cta{text-align:center;}
   .nav-toggle{display:flex;}
-  .hero-deco{width:180px;right:-18px;bottom:12px;opacity:.8;}
   .deco-hero-paw{bottom:10px;}
   .cta-section{border-radius:32px 32px 0 0;}
   .contact-item{min-width:0;width:100%;max-width:340px;}
@@ -430,23 +405,18 @@ h2.center{text-align:center;margin-bottom:0;}
   </div>
 </header>
 
+<section class="announcement">
+  <div class="container">
+    <p><strong>Service update</strong> — We've retired overnight boarding to become a daycare-only service, so every dachshund has our full attention during the day.</p>
+  </div>
+</section>
+
 <section class="hero" id="home">
-  <svg class="hero-deco wag" viewBox="0 0 260 150" aria-hidden="true">
-    <g class="tail"><path d="M40 66 C22 58 20 40 34 30" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
-    <rect x="52" y="92" width="14" height="42" rx="7"/>
-    <rect x="80" y="92" width="14" height="42" rx="7"/>
-    <rect x="150" y="92" width="14" height="42" rx="7"/>
-    <rect x="178" y="92" width="14" height="42" rx="7"/>
-    <rect x="40" y="60" width="170" height="44" rx="22"/>
-    <circle cx="210" cy="58" r="30"/>
-    <rect x="226" y="50" width="34" height="22" rx="11"/>
-    <path d="M198 34 C226 24 238 44 224 66 C210 60 198 50 198 34 Z"/>
-  </svg>
   <svg class="deco deco-paw deco-hero-paw" viewBox="0 0 40 40" aria-hidden="true"><use href="#paw"/></svg>
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="eyebrow reveal">One dog at a time · Lake Claire, Atlanta</span>
-      <h1 class="reveal">A quiet little <em>wonderland,</em><br>just for your dachshund.</h1>
+      <h1 class="reveal">A quiet little <em>wonderland,</em> <br>just for your dachshund.</h1>
       <p class="hero-text reveal">A boutique daycare that welcomes only one dog at a time — so every walk, every nap, and every belly rub belongs entirely to your pup.</p>
       <div class="hero-actions reveal">
         <a href="#contact" class="btn btn-primary">Reserve a Spot</a>
@@ -459,19 +429,13 @@ h2.center{text-align:center;margin-bottom:0;}
       </div>
     </div>
     <div class="hero-media reveal">
-      <div class="arch-frame" data-depth="4">
+      <div class="hero-frame" data-depth="4">
 <video class="hero-video" autoplay muted loop playsinline poster="hero.jpg" aria-hidden="true">
   <source src="https://videos.pexels.com/video-files/37554395/15913140_1080_1920_30fps.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="announcement">
-  <div class="container">
-    <p><strong>Service update</strong> — We've retired overnight boarding to become a daycare-only service, so every dachshund has our full attention during the day.</p>
   </div>
 </section>
 
@@ -538,18 +502,18 @@ h2.center{text-align:center;margin-bottom:0;}
 
     <div class="group-head reveal"><span class="eyebrow center">What's included in every stay</span></div>
     <div class="grid-3">
-      <div class="card numbered reveal">
-        <span class="num">1</span>
+      <div class="card reveal">
+        <span class="card-index">01</span>
         <h3>Personalized activities</h3>
         <p>Private daily walks tailored to their pace and stamina, interactive playtime, and quiet naps built around your dachshund's routine.</p>
       </div>
-      <div class="card numbered reveal">
-        <span class="num">2</span>
+      <div class="card reveal">
+        <span class="card-index">02</span>
         <h3>Regular updates</h3>
         <p>Photo and text updates throughout the day, so you can see exactly how your dachshund is enjoying their exclusive stay.</p>
       </div>
-      <div class="card numbered reveal">
-        <span class="num">3</span>
+      <div class="card reveal">
+        <span class="card-index">03</span>
         <h3>Flexible scheduling</h3>
         <p>Drop-off and pick-up times that work with your schedule — because we only ever focus on one dog at a time.</p>
       </div>
@@ -632,17 +596,6 @@ h2.center{text-align:center;margin-bottom:0;}
 </section>
 
 <section class="cta-section" id="contact">
-  <svg class="cta-deco wag" viewBox="0 0 260 150" aria-hidden="true">
-    <g class="tail"><path d="M40 66 C22 58 20 40 34 30" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/></g>
-    <rect x="52" y="92" width="14" height="42" rx="7"/>
-    <rect x="80" y="92" width="14" height="42" rx="7"/>
-    <rect x="150" y="92" width="14" height="42" rx="7"/>
-    <rect x="178" y="92" width="14" height="42" rx="7"/>
-    <rect x="40" y="60" width="170" height="44" rx="22"/>
-    <circle cx="210" cy="58" r="30"/>
-    <rect x="226" y="50" width="34" height="22" rx="11"/>
-    <path d="M198 34 C226 24 238 44 224 66 C210 60 198 50 198 34 Z"/>
-  </svg>
   <svg class="deco deco-paw deco-cta" viewBox="0 0 40 40" aria-hidden="true"><use href="#paw"/></svg>
   <div class="container">
     <h2>Give your dachshund the VIP treatment they deserve.</h2>
