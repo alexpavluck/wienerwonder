@@ -145,12 +145,6 @@ ul{list-style:none;}
 .hero-stats span{font-size:.88rem;color:var(--ink-soft);}
 .hero-stats .divider{width:1px;height:38px;background:var(--line-strong);}
 
-/* Dachshund underline inside the hero headline */
-.squig{position:relative;white-space:nowrap;display:inline-block;}
-.squiggle{position:absolute;left:0;right:0;bottom:-0.26em;height:0.62em;color:var(--caramel);overflow:visible;transform:scaleX(0);transform-origin:left center;transition:transform .9s var(--ease) .4s;}
-.squiggle svg{width:100%;height:100%;display:block;}
-.reveal.in .squiggle{transform:scaleX(1);}
-
 /* Hero media — clean rounded image */
 .hero-media{position:relative;}
 .arch-frame{
@@ -337,7 +331,6 @@ h2.center{text-align:center;margin-bottom:0;}
 .reveal.in{opacity:1;transform:none;}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none;}
-  .squiggle{transform:scaleX(1);transition:none;}
   .marquee-track{animation:none;}
   .wag .tail{animation:none;}
   html{scroll-behavior:auto;}
@@ -384,19 +377,6 @@ h2.center{text-align:center;margin-bottom:0;}
     <circle cx="210" cy="58" r="30"/>
     <rect x="226" y="50" width="34" height="22" rx="11"/>
     <path d="M198 34 C226 24 238 44 224 66 C210 60 198 50 198 34 Z"/>
-  </symbol>
-  <!-- Elongated dachshund underline (inherits currentColor) -->
-  <symbol id="dox-line" viewBox="0 0 260 40" preserveAspectRatio="none">
-    <path d="M24 22 C10 20 8 14 16 10" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-    <rect x="28" y="22" width="170" height="14" rx="7"/>
-    <circle cx="14" cy="16" r="4"/>
-    <rect x="44" y="30" width="7" height="10" rx="3.5"/>
-    <rect x="68" y="30" width="7" height="10" rx="3.5"/>
-    <rect x="152" y="30" width="7" height="10" rx="3.5"/>
-    <rect x="176" y="30" width="7" height="10" rx="3.5"/>
-    <circle cx="208" cy="18" r="13"/>
-    <rect x="218" y="12" width="26" height="12" rx="6"/>
-    <circle cx="234" cy="16" r="2.5" fill="var(--cream)"/>
   </symbol>
   <!-- Two-tone logo mark with a little caramel collar -->
   <symbol id="dox-logo" viewBox="0 0 260 150">
@@ -463,7 +443,7 @@ h2.center{text-align:center;margin-bottom:0;}
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="eyebrow reveal">One dog at a time · Lake Claire, Atlanta</span>
-      <h1 class="reveal">A quiet little <em>wonderland,</em><br>just for your <span class="squig">dachshund.<svg class="squiggle" viewBox="0 0 260 40" preserveAspectRatio="none" aria-hidden="true"><use href="#dox-line"/></svg></span></h1>
+      <h1 class="reveal">A quiet little <em>wonderland,</em><br>just for your dachshund.</h1>
       <p class="hero-text reveal">A boutique daycare that welcomes only one dog at a time — so every walk, every nap, and every belly rub belongs entirely to your pup.</p>
       <div class="hero-actions reveal">
         <a href="#contact" class="btn btn-primary">Reserve a Spot</a>
