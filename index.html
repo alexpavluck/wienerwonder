@@ -112,12 +112,29 @@ ul{list-style:none;}
 .nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 /* Hero */
-.hero{position:relative;padding:104px 0 120px;overflow:hidden;
+.hero{position:relative;padding:104px 0 92px;overflow:hidden;
   background:radial-gradient(640px 320px at 88% -6%, rgba(201,133,63,0.16), transparent 65%),
              radial-gradient(420px 260px at -8% 88%, rgba(180,87,46,0.06), transparent 60%),
              var(--cream);
 }
-.hero-deco{position:absolute;right:-36px;bottom:-28px;width:340px;height:auto;color:var(--caramel-soft);pointer-events:none;}
+.hero-deco{position:absolute;right:-24px;bottom:18px;width:240px;height:auto;color:var(--caramel-soft);pointer-events:none;}
+
+/* Decorative dog/paw accents placed in empty space */
+.deco{position:absolute;pointer-events:none;color:var(--caramel-soft);z-index:0;opacity:.35;}
+.deco-dox{width:180px;height:auto;}
+.deco-paw{width:48px;height:auto;}
+.deco-hero-paw{left:8%;bottom:18px;width:56px;opacity:.22;}
+.deco-services{right:-30px;top:-20px;width:160px;opacity:.18;}
+.deco-pricing{left:-24px;bottom:-18px;width:64px;opacity:.18;}
+.deco-faq-paw1{right:-18px;top:20px;width:52px;opacity:.16;}
+.deco-faq-paw2{left:10px;bottom:30px;width:40px;opacity:.14;}
+.deco-cta{right:8%;top:22%;width:52px;opacity:.12;color:var(--caramel);}
+.section{position:relative;}
+.section.alt .deco{color:var(--caramel);opacity:.12;}
+.cta-section .deco{color:var(--caramel);opacity:.12;}
+@media (max-width:880px){
+  .deco-dox,.deco-paw{display:none;}
+}
 .hero-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:72px;align-items:center;position:relative;}
 .hero h1{font-size:clamp(2.8rem,5.2vw,4.4rem);margin-bottom:24px;}
 .hero h1 em{font-style:italic;color:var(--caramel-deep);}
@@ -344,7 +361,8 @@ h2.center{text-align:center;margin-bottom:0;}
   .main-nav a::after{display:none;}
   .nav-cta{text-align:center;}
   .nav-toggle{display:flex;}
-  .hero-deco{width:220px;opacity:.8;}
+  .hero-deco{width:180px;right:-18px;bottom:12px;opacity:.8;}
+  .deco-hero-paw{bottom:10px;}
   .cta-section{border-radius:32px 32px 0 0;}
   .contact-item{min-width:0;width:100%;max-width:340px;}
 }
@@ -428,6 +446,7 @@ h2.center{text-align:center;margin-bottom:0;}
     <rect x="226" y="50" width="34" height="22" rx="11"/>
     <path d="M198 34 C226 24 238 44 224 66 C210 60 198 50 198 34 Z"/>
   </svg>
+  <svg class="deco deco-paw deco-hero-paw" viewBox="0 0 40 40" aria-hidden="true"><use href="#paw"/></svg>
   <div class="container hero-grid">
     <div class="hero-copy">
       <span class="eyebrow reveal">One dog at a time · Lake Claire, Atlanta</span>
@@ -443,14 +462,9 @@ h2.center{text-align:center;margin-bottom:0;}
         <div><strong>$<span class="count-up" data-count="30">30</span></strong><span>per day</span></div>
       </div>
     </div>
-        <div class="hero-media reveal">
+    <div class="hero-media reveal">
       <div class="arch-frame" data-depth="4">
         <img src="hero.jpg" alt="A happy dachshund relaxing at Wiener Wonderland daycare">
-      </div>
-    </div>
-      <div class="hero-chip chip-bottom" data-depth="8">
-        <svg class="paw" viewBox="0 0 40 40" aria-hidden="true"><use href="#paw"/></svg>
-        <span>One dog at a time — always</span>
       </div>
     </div>
   </div>
@@ -499,6 +513,7 @@ h2.center{text-align:center;margin-bottom:0;}
 </section>
 
 <section class="section alt" id="services">
+  <svg class="deco deco-dox deco-services" viewBox="0 0 260 150" aria-hidden="true"><use href="#dox"/></svg>
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow center">Why it works &amp; what's included</span>
@@ -544,6 +559,7 @@ h2.center{text-align:center;margin-bottom:0;}
 </section>
 
 <section class="section" id="pricing">
+  <svg class="deco deco-paw deco-pricing" viewBox="0 0 40 40" aria-hidden="true"><use href="#paw"/></svg>
   <div class="container">
     <div class="section-head reveal">
       <span class="eyebrow center">Honest pricing</span>
@@ -594,6 +610,8 @@ h2.center{text-align:center;margin-bottom:0;}
 </section>
 
 <section class="section alt" id="faq">
+  <svg class="deco deco-paw deco-faq-paw1" viewBox="0 0 40 40" aria-hidden="true"><use href="#paw"/></svg>
+  <svg class="deco deco-paw deco-faq-paw2" viewBox="0 0 40 40" aria-hidden="true"><use href="#paw"/></svg>
   <div class="container narrow">
     <div class="section-head reveal">
       <span class="eyebrow center">Good to know</span>
@@ -626,6 +644,7 @@ h2.center{text-align:center;margin-bottom:0;}
     <rect x="226" y="50" width="34" height="22" rx="11"/>
     <path d="M198 34 C226 24 238 44 224 66 C210 60 198 50 198 34 Z"/>
   </svg>
+  <svg class="deco deco-paw deco-cta" viewBox="0 0 40 40" aria-hidden="true"><use href="#paw"/></svg>
   <div class="container">
     <h2>Give your dachshund the VIP treatment they deserve.</h2>
     <p>Spaces are limited due to our one-dog-at-a-time policy, so reach out today to reserve your spot.</p>
